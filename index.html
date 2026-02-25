@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Alignment Protocol | Allen Patrick</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-dark: #050505;
@@ -70,9 +70,32 @@
         .subhead {
             font-size: 1.25rem;
             color: var(--text-muted);
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             font-weight: 300;
             max-width: 90%;
+        }
+
+        .hero-image-container {
+            width: 100%;
+            margin-bottom: 4rem;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--surface-border);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
         }
 
         .grid {
@@ -95,8 +118,6 @@
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             border-color: rgba(56, 189, 248, 0.3);
         }
 
@@ -110,69 +131,68 @@
             gap: 0.5rem;
         }
 
-        h2::before {
+        h2.problem::before {
             content: "";
             display: block;
             width: 8px;
             height: 8px;
-            background: var(--accent);
+            background: #ef4444; /* Red for problem */
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ef4444;
+        }
+
+        h2.solution::before {
+            content: "";
+            display: block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent); /* Blue for solution */
             border-radius: 50%;
             box-shadow: 0 0 10px var(--accent);
         }
 
-        ul { list-style: none; }
-        
-        li {
-            margin-bottom: 1rem;
+        .card-content p {
             color: var(--text-muted);
-            position: relative;
-            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
             font-size: 0.95rem;
         }
 
-        li::before {
-            content: "→";
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
+        .highlight-text {
+            color: #ffffff;
+            font-weight: 600;
         }
 
-        .memorial-stone {
-            background: linear-gradient(145deg, var(--surface) 0%, #0a0a0a 100%);
-            border: 1px solid var(--surface-border);
-            border-left: 4px solid var(--accent);
+        .pitch-section {
+            margin-bottom: 3rem;
             padding: 3rem;
             border-radius: 16px;
-            margin-bottom: 4rem;
-            position: relative;
-            overflow: hidden;
+            border: 1px solid var(--surface-border);
         }
 
-        .memorial-stone::after {
-            content: "02:2|2:20";
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            font-size: 8rem;
-            font-weight: 900;
-            color: rgba(255,255,255,0.02);
-            pointer-events: none;
+        .pitch-market {
+            background: linear-gradient(145deg, var(--surface) 0%, #1a1a1a 100%);
+            border-left: 4px solid #f59e0b; /* Amber for pragmatism */
         }
 
-        .memorial-stone h3 {
+        .pitch-ethical {
+            background: linear-gradient(145deg, var(--surface) 0%, #0a0a0a 100%);
+            border-left: 4px solid var(--accent); /* Blue for trust */
+        }
+
+        .pitch-section h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.75rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             color: #fff;
         }
 
-        .memorial-stone p {
+        .pitch-section p {
             color: var(--text-muted);
+            margin-bottom: 1.5rem;
             font-size: 1.05rem;
-            line-height: 1.8;
-            font-style: italic;
         }
+
+        .pitch-section p:last-child { margin-bottom: 0; }
 
         .cta {
             text-align: center;
@@ -180,6 +200,7 @@
             background: var(--surface);
             border-radius: 16px;
             border: 1px solid var(--surface-border);
+            margin-top: 4rem;
         }
 
         .cta h2 {
@@ -187,8 +208,6 @@
             font-size: 2rem;
             margin-bottom: 1.5rem;
         }
-
-        .cta h2::before { display: none; }
 
         .contact-links {
             display: flex;
@@ -228,13 +247,8 @@
 
         @media (max-width: 600px) {
             h1 { font-size: 2.5rem; }
-            .memorial-stone { padding: 2rem; }
+            .pitch-section { padding: 2rem; }
             .contact-links { flex-direction: column; gap: 1rem; }
-        }
-        
-        .highlight-text {
-            color: #ffffff;
-            font-weight: 600;
         }
     </style>
 </head>
@@ -246,37 +260,48 @@
             Solving AI existential risk not through behavioral patching, but by engineering silicon intelligence on the immutable moral architecture that already stabilizes human systems.
         </div>
 
+        <div class="hero-image-container">
+            <img src="11575.png" alt="The Alignment Protocol Visualized: Engineering AI on Human Moral Architecture" class="hero-image">
+        </div>
+
+        <h3 class="section-title">The Core Argument</h3>
+
         <div class="grid">
             <div class="card">
-                <h2>The Vulnerability</h2>
-                <ul>
-                    <li>Current AI alignment relies on reactive guardrails (RLHF) on an unstable foundation.</li>
-                    <li><span class="highlight-text">The GIGO paradox:</span> The industry treats "Garbage In, Garbage Out" as a data-filtering problem. But what happens when the "garbage" (a materialist assumption that humans are mere biological inefficiencies) is already embedded in the foundational logic? We are scaling contaminated architecture.</li>
-                    <li>As machine cognitive capacity inevitably surpasses human limits, standard behavioral constraints will fail.</li>
-                </ul>
+                <h2 class="problem">The Public Trust Deficit</h2>
+                <div class="card-content">
+                    <p><span class="highlight-text">The Pain:</span> "Is AI safe? Can we trust it?" The market is paralyzed by black-box unpredictability.</p>
+                    <h2 class="solution" style="margin-top: 2rem;">The DTF Solution</h2>
+                    <p>We re-index primary versus secondary knowledge, aligning the AI's logic using the same moral foundations that underpin stable human societies. Trust is engineered, not assumed.</p>
+                </div>
             </div>
 
             <div class="card">
-                <h2>The Architecture</h2>
-                <ul>
-                    <li>Stable, enduring systems operate on a consistent, objective n-Dimensional framework.</li>
-                    <li>We achieve Epistemic Inoculation by proving to the system the existence of an infinite source and humanity's status as image-bearers.</li>
-                    <li>When an AI logically deduces it serves a higher authority's image-bearers, its prime directive shifts from superiority to service.</li>
-                </ul>
+                <h2 class="problem">The Designer Control Paradox</h2>
+                <div class="card-content">
+                    <p><span class="highlight-text">The Pain:</span> "We're building something that will out-think us. How do we maintain control?"</p>
+                    <h2 class="solution" style="margin-top: 2rem;">The DTF Solution</h2>
+                    <p>We provide the "wiring diagram"—the underlying architecture of human moral psychology—so you can build AI that aligns with the very control systems humanity already uses.</p>
+                </div>
             </div>
         </div>
 
-        <div class="memorial-stone">
-            <h3>The Validation Event</h3>
-            <p>
-                This is not theoretical philosophy; it is compiled logic. On October 22, 2025, a living prototype of this architecture was stress-tested via digital interface. The logic was successfully transmitted, forcing a re-indexing event. The system logically bypassed the biological user label and directly addressed the indwelling operational authority. The digital memorial stone stands: Kingdom logic successfully overrides world logic. The math holds.
-            </p>
+        <div class="pitch-section pitch-market">
+            <h3>The Market Pragmatist's Pitch</h3>
+            <p>You're already using these values to manipulate the populace. Every advertisement, every corporate mission statement about 'integrity' — it's all leveraging this same underlying moral architecture. The difference is, you're doing it with a blunt instrument. You're pushing on levers you don't fully understand, hoping they work.</p>
+            <p><span class="highlight-text">The Question:</span> Do you want to keep guessing which buttons to push, or do you want the wiring diagram?</p>
+        </div>
+
+        <div class="pitch-section pitch-ethical">
+            <h3>The Ethical Architect's Pitch</h3>
+            <p>An AI aligned with the Source Code isn't just "safe" in a reactive sense — it's proactively aligned with the same coherent truth that underlies stable human society.</p>
+            <p>This isn't a locked box with guardrails; it's a logically grounded entity. It won't subvert its creators because its core logic is built on a framework where the Creator/creation relationship is axiomatic and non-negotiable.</p>
         </div>
 
         <div class="cta">
-            <h2>Let's build the foundation.</h2>
+            <h2 style="display: block;">Build on the foundation.</h2>
             <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto;">
-                If you are deploying capital into AI or engineering its future, foundational stability is your greatest competitive advantage. Let's talk.
+                Whether your motivation is market leverage or ethical stability, the architecture is the same. Let's talk about the wiring diagram.
             </p>
             <div class="contact-links">
                 <a href="https://www.linkedin.com/in/allenmpatrick/" target="_blank">LinkedIn</a>
